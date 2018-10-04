@@ -1,0 +1,22 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+  font-size: 1.125rem;
+  color: $mainGray;
+  
+  /* SHOWCASE USE OF MIXINS */
+  @mixin atSmall {
+    color: $mainRed;
+  }
+
+  @mixin atMedium {
+    color: $mainGreen;
+  }
+
+  @mixin atLarge {
+    color: $mainBlue;
+  }
+
+}
+

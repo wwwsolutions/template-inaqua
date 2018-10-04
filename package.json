@@ -1,0 +1,106 @@
+{
+  "name": "es6-starter-boilerplate",
+  "version": "1.0.0",
+  "description": "A webpack 4 boilerplate w/ babel (es6), eslint, postcss, stylelint and more",
+  "author": "Domagoj-Mario Mendas <dmendas@programmingwww.solutions>",
+
+  "homepage": "https://github.com/wwwsolutions/es6-starter-boilerplate",
+  "contributors": [
+    {
+      "name": "Domagoj-Mario Mendas",
+      "email": "developer.domagoj.mendas@gmail.com",
+      "url": "https://"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wwwsolutions/es6-starter-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/wwwsolutions/es6-starter-boilerplate/issues",
+    "email": "developer.domagoj.mendas@gmail.com"
+  },
+  "engines": {
+    "node": ">=8.11.2"
+  },
+
+  "main": "index.js",
+  
+  "scripts": {
+    "gulp": "./node_modules/gulp/bin/gulp.js",
+    "build:icons": "gulp icons",
+    "webpack": "webpack",
+    "prod": "npm run webpack -- --env.mode production",
+    "dev": "webpack-dev-server --env.mode development",
+    "prod:debug": "npm run debug -- --env.mode production",
+    "dev:debug": "npm run debug -- --env.mode development",
+    "debug": "node --inspect --debug-brk ./node_modules/webpack/bin/webpack.js",
+    "debug:node:example": "node --inspect --inspect-brk ./src/index.js",
+    "babel": "babel testing.js"
+  },
+  
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^0.28.11",
+    "css-mqpacker": "^6.0.2",
+    "cssnano": "^3.10.0",
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "express": "^4.16.3",
+    "file-loader": "^2.0.0",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
+    "jsdom-quokka-plugin": "^1.0.13",
+    "mini-css-extract-plugin": "^0.4.3",
+    "offline-plugin": "^5.0.3",
+    "postcss-cli": "^6.0.0",
+    "postcss-hexrgba": "^1.0.1",
+    "postcss-import": "^12.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-mixins": "^6.2.0",
+    "postcss-nested": "^4.1.0",
+    "postcss-normalize": "^7.0.1",
+    "postcss-preset-env": "^6.0.10",
+    "postcss-simple-vars": "^5.0.1",
+    "style-loader": "^0.23.0",
+    "stylelint": "^9.6.0",
+    "stylelint-config-standard": "^18.2.0",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.20.2",
+    "webpack-bundle-analyzer": "^3.0.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-hot-middleware": "^2.24.2",
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2",
+    "workbox-webpack-plugin": "^3.6.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.1.2"
+  },
+  
+  "quokka": {
+    "babel": false,
+    "plugins": "jsdom-quokka-plugin",
+    "jsdom": {
+      "file": "src/templates/index.html"
+    }
+  }
+}
