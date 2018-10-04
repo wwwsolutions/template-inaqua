@@ -1,19 +1,21 @@
-h2 {
-  padding: 0.75rem 1.2rem;
+.header {
   color: #fff;
-  background-color: $mainGray;
+  background-color: silver;
 
   /* SHOWCASE USE OF MIXINS AND VARIABLES */
   @mixin atSmall {
-    background-color: $mainRed;
+    color: $lightRed;
+    background-color: $darkRed;
   }
 
   @mixin atMedium {
-    background-color: $mainGreen;
+    color: $lightGreen;
+    background-color: $darkGreen;
   }
 
   @mixin atLarge {
-    background-color: $mainBlue;
+    color: $lightBlue;
+    background-color: $darkBlue;
   }
-
 }
+
