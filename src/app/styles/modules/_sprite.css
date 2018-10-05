@@ -1,0 +1,78 @@
+/* Do not edit modules/_sprite directly as it is generated automatically by Gulp.
+Instead edit gulp/templates/sprite */
+
+    .icon {
+      background-image: url('/assets/images/sprites/sprite-57beac9f.svg');
+    }
+
+  .icon--3d-modelling {
+    width: 64px;
+    height: 64px;
+    background-position: 33.333333333333336% 0;
+  }
+
+  .icon--css-3 {
+    width: 64px;
+    height: 64px;
+    background-position: 0 100%;
+  }
+
+  .icon--css-file-format-with-brackets {
+    width: 64px;
+    height: 64px;
+    background-position: 0 50%;
+  }
+
+  .icon--expand-corners {
+    width: 64px;
+    height: 64px;
+    background-position: 33.333333333333336% 50%;
+  }
+
+  .icon--github-logo {
+    width: 64px;
+    height: 64px;
+    background-position: 66.66666666666667% 0;
+  }
+
+  .icon--html-5 {
+    width: 64px;
+    height: 64px;
+    background-position: 66.66666666666667% 50%;
+  }
+
+  .icon--javascript {
+    width: 64px;
+    height: 64px;
+    background-position: 0 0;
+  }
+
+  .icon--mobile {
+    width: 64px;
+    height: 64px;
+    background-position: 33.333333333333336% 100%;
+  }
+
+  .icon--multi {
+    width: 64px;
+    height: 64px;
+    background-position: 66.66666666666667% 100%;
+  }
+
+  .icon--responsive {
+    width: 64px;
+    height: 64px;
+    background-position: 100% 0;
+  }
+
+  .icon--web-development {
+    width: 64px;
+    height: 64px;
+    background-position: 100% 50%;
+  }
+
+  .icon--web-svg {
+    width: 64px;
+    height: 64px;
+    background-position: 100% 100%;
+  }

@@ -1,69 +1,10 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: $lightGray;
-  font-size: 1.125rem;
-  color: silver;
-
-  /* SHOWCASE USE OF MIXINS */
-  @mixin atSmall {
-    color: $darkRed;
-  }
-
-  @mixin atMedium {
-    color: $darkGreen;
-  }
-
-  @mixin atLarge {
-    color: $darkBlue;
-  }
-}
-
-h2 {
-  padding: 1rem;
-  font-size: 1.225em;
-  font-weight: 900;
-}
-
-h3 {
-  padding: 0.85em;
-  font-size: 1.125em;
-  font-weight: 700;
-}
-
-ul {
-  padding: 2rem;
-}
-ul li {
-  padding: 0.2em;
-  font-size: 0.9em;
-  font-weight: 600;
-}
-
-.status {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  padding: 0.25rem 0.5rem;
   background-color: $nearBlack;
-  color: $gold;
-  box-shadow: -2px 3px 5px 3px rgba(0, 0, 0, 0.75);
-  font-size: 0.75em;
-  font-weight: 600;
 }
 
-.status::after {
-  content: '@default';
-
-  @mixin atSmall {
-    content: '@small';
-  }
-
-  @mixin atMedium {
-    content: '@medium';
-  }
-
-  @mixin atLarge {
-    content: '@large';
-  }
-}
 

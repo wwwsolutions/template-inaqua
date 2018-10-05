@@ -1,7 +1,10 @@
+/* @import "normalize.css"; */
 @import "vendor/_reset";
+/* @import "vendor/_grid.min"; */
 
 @import "base/_variables";
 @import "base/_mixins";
 @import "base/_global";
 
-@import "modules/_module-example";
+@import "modules/_sprite";
+@import "modules/_features";

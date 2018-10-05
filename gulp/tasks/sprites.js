@@ -34,26 +34,22 @@ const config = {
 };
 
 function beginClean() {
-  console.log('beginClean()', `${paths.temp.root}, ${paths.src.sprites}`);
   return del([paths.temp.root, paths.src.sprites]);
 }
 
 function createSprite() {
-  console.log('createSprite()', `${paths.src.icons}, ${paths.temp.sprites}`);
   return gulp.src(paths.src.icons)
     .pipe(svgSprite(config))
     .pipe(gulp.dest(paths.temp.sprites));
 }
 
 function copySpriteGraphic() {
-  console.log('copySpriteGraphic()', `${paths.temp.svg}, ${paths.src.sprites}`);
   return gulp.src(paths.temp.svg)
     .pipe(gulp.dest(paths.src.sprites));
 
   }
 
 function copySpriteCSS() {
-  console.log('copySpriteGraphic()', `${paths.temp.css}, ${paths.src.modules})}`);
   return gulp.src(paths.temp.css)
     .pipe(rename('_sprite.css'))
     .pipe(gulp.dest(paths.src.modules));
@@ -68,10 +64,6 @@ exports.createSprite = createSprite;
 exports.copySpriteGraphic = copySpriteGraphic;
 exports.copySpriteCSS = copySpriteCSS;
 
-// const build = gulp.series(beginClean, gulp.parallel(createSprite, copySpriteGraphic, copySpriteCSS, endClean));
-
-// const build = gulp.series(beginClean, createSprite, copySpriteGraphic, copySpriteCSS, endClean);
 const build = gulp.series(beginClean, createSprite, copySpriteGraphic, copySpriteCSS, endClean);
-
 
 gulp.task('icons', build);
