@@ -25,8 +25,11 @@ module.exports = ({ mode } = { mode: 'production' }) => {
 
     // COMMON CONFIG
     {
+      
       mode, 
+      
       entry: ['./src/index.js'],
+      
       module: {
         rules: [
           babelLoader(), 
@@ -36,6 +39,8 @@ module.exports = ({ mode } = { mode: 'production' }) => {
         
         ]
       },
+
+      // PLUGINS
       plugins: [ 
 
         new webpack.HotModuleReplacementPlugin(),

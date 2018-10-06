@@ -1,6 +1,7 @@
 {
   "name": "es6-starter-boilerplate",
   "version": "1.0.1",
+  "sideEffects": false,
   "description": "A webpack 4 boilerplate w/ babel (es6), eslint, postcss, stylelint and more",
   "author": "Domagoj-Mario Mendas <dmendas@programmingwww.solutions>",
   "homepage": "https://github.com/wwwsolutions/es6-starter-boilerplate",
@@ -76,6 +77,7 @@
     "style-loader": "^0.23.0",
     "stylelint": "^9.6.0",
     "stylelint-config-standard": "^18.2.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.1.1",
     "webpack": "^4.20.2",
     "webpack-bundle-analyzer": "^3.0.2",

@@ -1,6 +1,4 @@
-/* @import "normalize.css"; */
 @import "vendor/_reset";
-/* @import "vendor/_grid.min"; */
 
 @import "base/_variables";
 @import "base/_mixins";
