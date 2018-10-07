@@ -13,7 +13,7 @@ const paths = {
   src: {
     sprites: './src/assets/images/sprites',
     icons: './src/assets/images/icons/**/*.svg',
-    modules: './src/app/styles/modules'
+    modules: './src/styles/modules'
   },
   templates: {
     sprite: './gulp/templates/sprite.css'
