@@ -57,7 +57,7 @@ module.exports = ({ mode } = { mode: 'production' }) => {
         new HtmlWebpackPlugin({
           filename: 'index.html',
           template: path.resolve(__dirname, './src/templates/index.html'),
-          favicon: path.resolve(__dirname, './src/templates/images/favicon.png')
+          favicon: path.resolve(__dirname, './src/templates/images/favicon.gif')
         }), 
         
         new webpack.ProgressPlugin(),

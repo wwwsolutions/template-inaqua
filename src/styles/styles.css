@@ -1,8 +1,10 @@
 @import "vendor/_reset";
+@import "vendor/_tachyons";
+
 
 @import "base/_variables";
 @import "base/_mixins";
 @import "base/_global";
 
-@import "modules/_sprite";
-@import "modules/_features";
+@import "modules/_large_hero";
+

@@ -1,0 +1,25 @@
+// LARGE HERO SECTION
+.large-hero { }
+.large-hero__image {
+  display: block;
+  height: 100vh; 
+  width: 100vw; 
+  object-fit: cover;
+}
+.large-hero__text-content {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wrapper { }y
+.large-hero__title {
+  font-size: 3.55rem;
+ }
+.large-hero__subtitle {
+     letter-spacing: 0.005em;
+ }
+.large-hero__description { }
+
+.large-hero__button { }
+
+
+
