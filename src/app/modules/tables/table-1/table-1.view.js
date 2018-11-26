@@ -1,8 +1,10 @@
-import { map, partial, pipe, sum } from 'ramda';
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
+import { map, partial, pipe, sum } from 'ramda';
+
+import { deleteTextForm1Msg, editTextForm1Msg } from '../../forms/form-1/form-1.actions';
+
 const { div, i, table, thead, tbody, tr, th, td } = hh(h);
-import { deleteTextMsg, editTextMsg } from '../../actions';
 
 
 const tableHeader = thead([
@@ -12,7 +14,7 @@ const tableHeader = thead([
     tableCell(th, '', '')
   ])
 ]);
- 
+
 function tableCell(tag, className, value) {
   return tag({ className }, value );
 }
@@ -23,13 +25,13 @@ function tableRow(dispatch, className, record) {
     tableCell(td, 'pa2 tr', record.number),
     tableCell(td, 'pa2 tr', [
       i({
-        className: 'ph1 fa fa-trash-o pointer',
-        onclick: () => dispatch(deleteTextMsg(record.id))
-      }),
+        className: 'ph1 pointer',
+        onclick: () => dispatch(deleteTextForm1Msg(record.id))
+      }, 'DEL'),
       i({
-        className: 'ph1 fa fa-pencil-square-o pointer',
-        onclick: () => dispatch(editTextMsg(record.id))
-      })
+        className: 'ph1 pointer',
+        onclick: () => dispatch(editTextForm1Msg(record.id))
+      }, 'EDIT')
 
     ])
   ]);
@@ -55,7 +57,7 @@ function tableBody(dispatch, className, records) {
   const rowsWithTotal = [ ...rows, tableRowTotals(records)];
   return tbody({ className }, rowsWithTotal);
 }
- 
+
 function view(dispatch, records) {
   if (records.length === 0) {
     return div({ className: 'mv2 i black-50'}, 'No records to display...');
@@ -67,4 +69,4 @@ function view(dispatch, records) {
 }
 
 
-export { view as tableView };
+export { view as table1View };

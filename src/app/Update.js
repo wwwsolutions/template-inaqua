@@ -1,195 +1,182 @@
-import { map, pipe, defaultTo, filter, find } from 'ramda';
-import MSGS  from './messages';
+import { pipe, defaultTo, filter, find } from 'ramda';
 
+import { addForm1, editForm1, addForm2, editForm2 } from './Update.helper.functions.js';
 
-/**
- *   Handles interaction and transforms the model.
- *   
- *   The update function is the only place your model gets transformed. ​ 
- *   It receives a message as well as the model, then updates the model according 
- *   to the message and returns it.
- *   
- *   As the update function is the only place where your model gets transformed, this 
- *   structure makes it very easy to reason about state changes and where they are coming from. 
- *   This concept seems very simple and natural, yet it emerged and gained popularity through 
- *   The Elm Architecture.
- *   
- *   Contrast this to applications that manage all of their possible states implicitly 
- *   and being changed from several places. It’s no surprise that this simple, yet 
- *   powerful way of state management became very popular and influenced other 
- *   frameworks like Redux.
- */ 
+import FORM1 from './modules/forms/form-1/form-1.messages.model';
+import FORM2 from './modules/forms/form-2/form-2.messages.model';
+
+// AGGREGATE MESSAGES
+const MSGS = {
+  ...FORM1,
+  ...FORM2,
+
+};
 
 function update(msg, model) {
 
+  // LOG
+  console.log(msg);
+
+  // FORM1 LOGIC
   switch (msg.type) {
 
-    case MSGS.SHOW_FORM: {
+    case MSGS.SHOW_FORM1: {
       const { showForm } = msg;
-      console.log(msg);
-      
-      // RETURN NESTED OBJECT
-      return {  
+      return {
         ...model,
-        form: {
-          ...model.form, 
-          showForm: showForm,
+        form1: {
+          ...model.form1,
+          showForm,
           text: '',
           number: 0
         }
       };
-      // return {  
-      //   ...model, 
-      //   showForm: showForm,
-      //   text: '',
-      //   number: 0
-      // };
     }
-    
-    case MSGS.INPUT_TEXT: {
+
+    case MSGS.INPUT_TEXT_FORM1: {
       const { text } = msg;
-      // RETURN NESTED OBJECT
-      return {  
+      return {
         ...model,
-        form: {
-          ...model.form, 
+        form1: {
+          ...model.form1,
           text
         }
       };
-      // return { ...model, text };
     }
-      
-    case MSGS.INPUT_NUMBER: {
-      // CONVERT STR->INT
+
+    case MSGS.INPUT_NUMBER_FORM1: {
       const number = pipe(
         parseInt,
         defaultTo(0)
       )(msg.number);
-            // RETURN NESTED OBJECT
-            return {  
-              ...model,
-              form: {
-                ...model.form, 
-                number
-              }
-            };
-      // return { ...model, number };
+      return {
+        ...model,
+        form1: {
+          ...model.form1,
+          number
+        }
+      };
     }
 
-    case MSGS.SAVE_TEXT: {
-      const { editId } = model.form;
-      const updatedModel = editId !== null ? edit(msg, model) : add(msg, model);
+    case MSGS.SAVE_FORM1: {
+      const { editId } = model.form1;
+      const updatedModel = editId !== null ? editForm1(msg, model) : addForm1(msg, model);
       return updatedModel;
     }
 
-    case MSGS.DELETE_TEXT: {
+    case MSGS.DELETE_FORM1: {
       const { id } = msg;
-      const records = filter( record => record.id !== id, model.form.records );
-      // RETURN NESTED OBJECT
-      return {  
+      const records = filter( record => record.id !== id, model.form1.records );
+      return {
         ...model,
-        form: {
-          ...model.form, 
+        form1: {
+          ...model.form1,
           records
         }
       };
-      
-      // return {
-      //   ...model,
-      //   records
-      // }  
     }
 
-    case MSGS.EDIT_TEXT: {
+    case MSGS.EDIT_FORM1: {
       const { editId } = msg;
       const record = find(
         record => record.id ===  editId,
-        model.form.records
+        model.form1.records
       );
       const { text, number } = record;
-      // RETURN NESTED OBJECT
-      return {  
+      return {
         ...model,
-        form: {
-          ...model.form, 
+        form1: {
+          ...model.form1,
           editId,
           text,
           number,
-          showForm: true        
+          showForm: true
         }
       };
+    }
+  }
 
-      // return {
-      //   ...model,
-      //   editId,
-      //   text,
-      //   number,
-      //   showForm: true
-      // }
+  // FORM2 LOGIC
+  switch (msg.type) {
+
+    case MSGS.SHOW_FORM2: {
+      const { showForm } = msg;
+      return {
+        ...model,
+        form2: {
+          ...model.form2,
+          showForm,
+          text: '',
+          number: 0
+        }
+      };
     }
 
+    case MSGS.INPUT_TEXT_FORM2: {
+      const { text } = msg;
+      return {
+        ...model,
+        form2: {
+          ...model.form2,
+          text
+        }
+      };
+    }
+
+    case MSGS.INPUT_NUMBER_FORM2: {
+      const number = pipe(
+        parseInt,
+        defaultTo(0)
+      )(msg.number);
+      return {
+        ...model,
+        form2: {
+          ...model.form2,
+          number
+        }
+      };
+    }
+
+    case MSGS.SAVE_FORM2: {
+      const { editId } = model.form2;
+      const updatedModel = editId !== null ? editForm2(msg, model) : addForm2(msg, model);
+      return updatedModel;
+    }
+
+    case MSGS.DELETE_FORM2: {
+      const { id } = msg;
+      const records = filter( record => record.id !== id, model.form2.records );
+      return {
+        ...model,
+        form2: {
+          ...model.form2,
+          records
+        }
+      };
+    }
+
+    case MSGS.EDIT_FORM2: {
+      const { editId } = msg;
+      const record = find(
+        record => record.id ===  editId,
+        model.form2.records
+      );
+      const { text, number } = record;
+      return {
+        ...model,
+        form2: {
+          ...model.form2,
+          editId,
+          text,
+          number,
+          showForm: true
+        }
+      };
+    }
   }
+
   return model;
-}
 
-function add(msg, model) {
-  const { nextId, text, number } = model.form;
-  const record = { id: nextId, text, number };
-  const records = [...model.form.records, record];
-
-      // RETURN NESTED OBJECT
-      return {  
-        ...model,
-        form: {
-          ...model.form, 
-          records,
-          nextId: nextId + 1,
-          text: '',
-          number: 0,
-          showForm: false
-        }
-      };
-
-  // return {
-  //   ...model,
-  //   records,
-  //   nextId: nextId + 1,
-  //   text: '',
-  //   number: 0,
-  //   showForm: false
-  // }
-}
-
-function edit(msg, model) {
-  const { text, number, editId } = model.form; 
-  const records = map( record => {
-      if (record.id === editId) {
-        return { ...record, text, number }
-      }
-      return record;
-    }, model.records );
-
-      // RETURN NESTED OBJECT
-      return {  
-        ...model,
-        form: {
-          ...model.form, 
-          records,
-          text: '',
-          number: 0,
-          showForm: false,
-          editId: null
-        }
-      };
-    
-    // return {
-    //   ...model, 
-    //   records,
-    //   text: '',
-    //   number: 0,
-    //   showForm: false,
-    //   editId: null
-    // }
 }
 
 

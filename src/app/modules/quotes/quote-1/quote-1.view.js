@@ -6,7 +6,7 @@ const { section, blockquote, cite, div, p } = hh(h);
 
 // PUBLIC VIEW
 function view(dispatch, model) {
-  const { author, content } = model.quotes;
+  const { author, content } = model.quote1;
 
   author //?
   return section({ className: 'quotes'}, [
@@ -21,4 +21,4 @@ function view(dispatch, model) {
 } // view
 
 
-export { view as quotesComponent };
+export { view as quote1View };

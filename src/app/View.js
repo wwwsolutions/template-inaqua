@@ -1,72 +1,41 @@
 import hh from 'hyperscript-helpers';
 import { h } from 'virtual-dom';
-const { div, pre } = hh(h);
+const { div, pre, h3 } = hh(h);
 
-import { formComponent } from './components/form/form.view';
-import { tableView } from './components/table/table.view';
-import { largeHeroComponent } from './components/large-hero/large-hero.view';
-import { quotesComponent } from './components/quotes/quotes.view';
+// IMPORT VIEWS
+// FORMS
+import { form1View } from './modules/forms/form-1/form-1.view';
+import { form2View } from './modules/forms/form-2/form-2.view';
+// TABLES
+import { table1View } from './modules/tables/table-1/table-1.view';
+import { table2View } from './modules/tables/table-2/table-2.view';
+// HEROES
+import { largeHero1View } from './modules/banners/large-hero-1/large-hero-1.view';
+import { largeHero2View } from './modules/banners/large-hero-2/large-hero-2.view';
+// QUOTAS
+import { quote1View } from './modules/quotes/quote-1/quote-1.view';
+import { quote2View } from './modules/quotes/quote-2/quote-2.view';
 
 
-
-
- 
 // PUBLIC
- function view(dispatch, model) {
-  
-  return div({ className: 'bn'}, [
-    
-    div({ className: 'flex flex-column bn'}, [
+function view(dispatch, model) {
+  return div({ className: 'flex flex-column bn'}, [
 
-      div({ className: 'center'}, [
-      
-        largeHeroComponent(dispatch, model),
-        
-        quotesComponent(dispatch, model),
-      
-        formComponent(dispatch, model), 
+    largeHero1View(dispatch, model),
 
-      // div({ className: 'w-100 pa3 '}, [
-      //   pre({ className: 'f5'}, JSON.stringify(model, null, 2))
-      // ]),
+    quote1View(dispatch, model),
 
-      ]), // div
-    ]) // div
+    form1View(dispatch, model),
+    table1View(dispatch, model.form1.records),
+    pre({ className: 'f5'}, JSON.stringify(model.form1, null, 2)),
 
-      // MODEL
-      // section({ className: 'w-100 pa3 '}, [
-      //   code(['MODEL SECTION']),
-      //   pre({ className: 'f5'}, JSON.stringify(model, null, 2))
-      // ]),
-      
-      // // CODE
-      // section({ className: 'outline w-100 pa3 mt3'}, [
-      //   code(['CODE SECTION']),
-      //   pre({ className: 'f5'}, JSON.stringify(model, null, 2))
-      // ])
+    quote2View(dispatch, model),
 
+    form2View(dispatch, model),
+    table2View(dispatch, model.form2.records),
+    pre({ className: 'f5'}, JSON.stringify(model.form2, null, 2)),
 
-    // h1({ className: 'f2'}, 'Title'),
-    
-    // formView(dispatch, model),
-    
-    // tableView(dispatch, model.records),
-
-    // div({ className: 'hero center ba'}, [
-    //   h3({ className: 'f3 pv2 bb'}, 'Hero'),
-    //   pre({ className: 'f5'}, JSON.stringify(model, null, 2))
-    // ]),
-
-    // div({ className: 'model center mw6 ba'}, [
-    //   h3({ className: 'f3 pv2 bb'}, 'Model'),
-    //   pre({ className: 'f5'}, JSON.stringify(model, null, 2))
-    // ]),
-    
-    // div({ className: 'code center mw6 ba'}, [
-    //   h3({ className: 'f3 pv2 bb'}, 'Code'),
-    //   pre({ className: 'f5'}, JSON.stringify(model, null, 2))
-    // ])
-    
+    largeHero2View(dispatch, model),
 
   ]);
 }

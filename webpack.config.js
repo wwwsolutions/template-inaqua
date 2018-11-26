@@ -4,7 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 
-// LOADERS 
+// LOADERS
 const babelLoader = require('./build-utils/loaders/babel.loader');
 const immagesLoader = require('./build-utils/loaders/images.loader');
 const fontsLoader = require('./build-utils/loaders/fonts.loader');
@@ -20,46 +20,46 @@ const loadSpecificModeConfig = env => require(`./build-utils/webpack.${env}`)(en
 
 // WEBPACK CONFIG
 module.exports = ({ mode } = { mode: 'production' }) => {
-  
+
   return webpackMerge(
 
     // COMMON CONFIG
     {
-      
-      mode, 
-      
+
+      mode,
+
       entry: ['./src/index.js'],
-      
+
       module: {
         rules: [
-          babelLoader(), 
+          babelLoader(),
           immagesLoader(),
           fontsLoader(),
           videoLoader(),
-        
+
         ]
       },
 
       // PLUGINS
-      plugins: [ 
+      plugins: [
 
         new webpack.HotModuleReplacementPlugin(),
-        
+
         new MiniCssExtractPlugin({
           filename: '[name].css',
           chunkFilename: '[id].css'
-        }), 
-        
+        }),
+
         new CopyWebpackPlugin([
           { from: './src/assets/images', to: 'assets/images' }
         ]),
-        
+
         new HtmlWebpackPlugin({
           filename: 'index.html',
           template: path.resolve(__dirname, './src/templates/index.html'),
-          favicon: path.resolve(__dirname, './src/templates/images/favicon.gif')
-        }), 
-        
+          favicon: path.resolve(__dirname, './src/templates/images/favicon.svg')
+        }),
+
         new webpack.ProgressPlugin(),
 
       ],
@@ -68,6 +68,6 @@ module.exports = ({ mode } = { mode: 'production' }) => {
 
     // SPECIFIC MODE CONFIGURATIOS
     loadSpecificModeConfig(mode),
-  
+
   );
 };

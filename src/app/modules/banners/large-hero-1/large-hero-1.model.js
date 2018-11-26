@@ -1,5 +1,5 @@
 const Model = {
-  largeHero: { 
+  largeHero1: {
     baseUrl: 'assets/images/',
     image: [
           {
@@ -29,27 +29,27 @@ const Model = {
           {
             isImg: true,
             low: '@default@1@640x875@4x3@woman.jpg',
-            lowWidth: '640', 
+            lowWidth: '640',
             high: '@default@2@1280x1750@4x3@woman.jpg',
             highWidth: '1280',
             class: 'large-hero__image object-fit_cover',
             alt: 'Coastal view of ocean and mountains',
             title: 'Women Under Water | media@default'
           }
-  
-    ], // image
+
+    ],
     content: {
       title: 'Inaqua',
       subTitle: 'A free landing page theme crafted with a functional paradigm.',
-      description: `This section is crafted in javascript functional style. Loads different images 
+      description: `This section is crafted in javascript functional style. Loads different images
                     depending on your monitor's resolution and dpi. Highly modular and customizable.`,
       buttonText: 'Get Source Code',
       buttonLnk: ''
-    }, // content
-  
+    },
+
   }
 
-      
+
 }
 
-export { Model as largeHeroModel };
+export { Model as largeHero1Model };
